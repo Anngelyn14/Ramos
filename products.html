@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - IDE Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">IDE Platform</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">SPT1</a></li>
+                    <li><a href="products.html">SPT2</a></li>
+                    <li><a href="quiz.html">WS101</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunkable App Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .app-container {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            flex: 1;
+        }
+        
+        .status-bar {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .screen {
+            padding: 20px;
+            min-height: 600px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            color: #4a6baf;
+            font-size: 24px;
+        }
+        
+        .button {
+            background-color: #4a6baf;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover {
+            background-color: #3a5a9f;
+        }
+        
+        .button.secondary {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .button.secondary:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .card h3 {
+            color: #4a6baf;
+            margin-bottom: 10px;
+        }
+        
+        .tab-bar {
+            display: flex;
+            background-color: #f8f8f8;
+            border-top: 1px solid #eee;
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .tab.active {
+            color: #4a6baf;
+            border-bottom: 2px solid #4a6baf;
+        }
+        
+        .tab:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .list-item {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .list-item:last-child {
+            border-bottom: none;
+        }
+        
+        .icon {
+            margin-right: 10px;
+            color: #4a6baf;
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4a6baf;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .notification.show {
+            opacity: 1;
+        }
+        
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="status-bar">
+            <span>9:41</span>
+            <span>Thunkable App</span>
+            <span>📶 100%</span>
+        </div>
+        
+        <div class="screen" id="home-screen">
+            <div class="header">
+                <h1>My Thunkable App</h1>
+                <p>Welcome to your custom app!</p>
+            </div>
+            
+            <div class="card">
+                <h3>Featured Content</h3>
+                <p>This is a sample app created with HTML, CSS, and JavaScript that mimics Thunkable's interface.</p>
+            </div>
+            
+            <button class="button" onclick="showScreen('profile-screen')">View Profile</button>
+            <button class="button secondary" onclick="showScreen('settings-screen')">Settings</button>
+            <button class="button" onclick="showNotification('Hello from Thunkable!')">Show Notification</button>
+            
+            <div class="card">
+                <h3>Quick Actions</h3>
+                <button class="button secondary" onclick="showScreen('list-screen')">View Items</button>
+                <button class="button secondary" onclick="showScreen('form-screen')">Add Item</button>
+            </div>
+        </div>
+        
+        <div class="screen hidden" id="profile-screen">
+            <div class="header">
+                <div class="avatar">👤</div>
+                <h1>User Profile</h1>
+            </div>
+            
+            <div class="card">
+                <h3>Personal Information</h3>
+                <div class="list-item">
+                    <span class="icon">👤</span>
+                    <span></span>
+                </div>
+                <div class="list-item">
+                    <span class="icon">📧</span>
+                    <span></span>
+                </div>
+                <div class="list-item">
+                    <span class="icon">📱</span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <button class="button" onclick="showScreen('home-screen')">Back to Home</button>
+        </div>
+        
+        <div class="screen hidden" id="settings-screen">
+            <div class="header">
+                <h1>Settings</h1>
+            </div>
+            
+            <div class="card">
+                <h3>Preferences</h3>
+                <div class="list-item">
+                    <span>Notifications</span>
+                    <input type="checkbox" style="margin-left: auto;" checked>
+                </div>
+                <div class="list-item">
+                    <span>Dark Mode</span>
+                    <input type="checkbox" style="margin-left: auto;">
+                </div>
+                <div class="list-item">
+                    <span>Auto-save</span>
+                    <input type="checkbox" style="margin-left: auto;" checked>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>About</h3>
+                <p>This is a Thunkable-style app created with HTML, CSS, and JavaScript.</p>
+                <p>Version 1.0.0</p>
+            </div>
+            
+            <button class="button" onclick="showScreen('home-screen')">Back to Home</button>
+        </div>
+        
+        <div class="screen hidden" id="list-screen">
+            <div class="header">
+                <h1>Items List</h1>
+            </div>
+            
+            <div class="card">
+                <h3>My Items</h3>
+                <div class="list-item">
+                    <span class="icon">📝</span>
+                    <span>Task 1: Complete project</span>
+                </div>
+                <div class="list-item">
+                    <span class="icon">📝</span>
+                    <span>Task 2: Review code</span>
+                </div>
+                <div class="list-item">
+                    <span class="icon">📝</span>
+                    <span>Task 3: Submit report</span>
+                </div>
+                <div class="list-item">
+                    <span class="icon">📝</span>
+                    <span>Task 4: Team meeting</span>
+                </div>
+            </div>
+            
+            <button class="button" onclick="showScreen('home-screen')">Back to Home</button>
+        </div>
+        
+        <div class="screen hidden" id="form-screen">
+            <div class="header">
+                <h1>Add New Item</h1>
+            </div>
+            
+            <div class="card">
+                <h3>Item Details</h3>
+                <input type="text" class="input-field" placeholder="Item title">
+                <textarea class="input-field" placeholder="Item description" rows="3"></textarea>
+                <input type="text" class="input-field" placeholder="Category">
+            </div>
+            
+            <button class="button" onclick="showNotification('Item added successfully!')">Save Item</button>
+            <button class="button secondary" onclick="showScreen('home-screen')">Cancel</button>
+        </div>
+        
+        <div class="tab-bar">
+            <div class="tab active" onclick="showScreen('home-screen')">Home</div>
+            <div class="tab" onclick="showScreen('list-screen')">List</div>
+            <div class="tab" onclick="showScreen('profile-screen')">Profile</div>
+            <div class="tab" onclick="showScreen('settings-screen')">Settings</div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">Notification</div>
+
+    <script>
+        function showScreen(screenId) {
+            // Hide all screens
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => {
+                screen.classList.add('hidden');
+            });
+            
+            // Show the selected screen
+            document.getElementById(screenId).classList.remove('hidden');
+            
+            // Update active tab
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Set active tab based on screen
+            if (screenId === 'home-screen') {
+                document.querySelectorAll('.tab')[0].classList.add('active');
+            } else if (screenId === 'list-screen') {
+                document.querySelectorAll('.tab')[1].classList.add('active');
+            } else if (screenId === 'profile-screen') {
+                document.querySelectorAll('.tab')[2].classList.add('active');
+            } else if (screenId === 'settings-screen') {
+                document.querySelectorAll('.tab')[3].classList.add('active');
+            }
+        }
+        
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
+<div class="mt-2">
+                <div class="center"></div>
+                    <a href="https://thunkable.com/" class="btn btn-primary">View App Walkthrough</a>
+                    <a href="#" class="btn btn-secondary" style="margin-left: 1rem;">Download Prototype</a>
+                </div>
+                <footer>
+        <div class="container">
+            <p>&copy; 2023 IDE Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    
+</body>
+</html>

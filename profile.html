@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - IDE Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">IDE Platform</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">SPT1</a></li>
+                    <li><a href="products.html">SPT2</a></li>
+                    <li><a href="quiz.html">WS101</a></li>
+                    
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Personal Profile</h1>
+            <p>Showcase your skills, experience, and portfolio</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="profile-container">
+            <div class="profile-sidebar">
+                <img src="4d3cf1a1-aaea-420f-87a8-98cbd54e2569.jpg" alt="Profile Picture" class="profile-pic">
+                <h3>Angelyn R. Ramos</h3>
+                <h4>BSIT 3B</h4>
+                <p>Junior Developer</p>
+                <div class="mt-2">
+                    <button id="toggle-skills" class="btn btn-primary">Show Skills</button>
+                </div>
+            </div>
+            
+            <div class="profile-main">
+                <h2>About Me</h2>
+                <p>Hello! I'm a passionate Junior Developer with expertise in frontend development, system integration, and mobile app prototyping. I enjoy creating user-friendly applications and solving complex problems through code.</p>
+                
+                <div id="skills-list" class="hidden mt-2">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                        <li>Mobile App Development</li>
+                        <li>UI/UX Design Principles</li>
+                        <li>Responsive Web Design</li>
+                        <li>Version Control (Git)</li>
+                        <li>API Integration</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-2">
+                    <h3>Projects</h3>
+                    <p>I've worked on various projects including:</p>
+                    <ul>
+                        <li>E-commerce website with payment integration</li>
+                        <li>Mobile app for task management</li>
+                        <li>Portfolio website for a local artist</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <script>
+        // Toggle skills visibility
+        document.getElementById('toggle-skills').addEventListener('click', function() {
+            const skillsList = document.getElementById('skills-list');
+            const button = document.getElementById('toggle-skills');
+            
+            if (skillsList.classList.contains('hidden')) {
+                skillsList.classList.remove('hidden');
+                button.textContent = 'Hide Skills';
+            } else {
+                skillsList.classList.add('hidden');
+                button.textContent = 'Show Skills';
+            }
+        });
+    </script>
+
+    
+    <title>Products - IDE Platform</title>
+    <style>
+       
+        
+        
+        /* Products page styles */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .product-info p {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a5a9f;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .category-filter {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .filter-container {
+                flex-direction: column;
+            }
+            
+            .category-filter {
+                justify-content: center;
+            }
+        }
+    </style>
+
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Explore our innovative solutions with dynamic pricing</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="filter-container">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search products...">
+            </div>
+            <div class="category-filter">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="software">Software</button>
+                <button class="category-btn" data-category="hardware">Hardware</button>
+                <button class="category-btn" data-category="services">Services</button>
+            </div>
+        </div>
+        
+        <div class="products-grid" id="products-container">
+            <!-- Products will be loaded here -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 IDE Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample product data
+        const products = [
+            {
+                id: 1,
+                name: "Web Development IDE",
+                description: "Advanced IDE for web development with live preview and debugging tools.",
+                price: 149.99,
+                category: "software",
+                image: "browser.png"
+            },
+            {
+                id: 2,
+                name: "Mobile App Builder",
+                description: "Drag-and-drop mobile app development platform for iOS and Android.",
+                price: 199.99,
+                category: "software",
+                image: "builder.png"
+            },
+            {
+                id: 3,
+                name: "Code Collaboration Tool",
+                description: "Real-time code collaboration and version control system for teams.",
+                price: 99.99,
+                category: "software",
+                image: "browser.png"
+            },
+            {
+                id: 4,
+                name: "Developer Laptop",
+                description: "High-performance laptop optimized for software development.",
+                price: 1299.99,
+                category: "hardware",
+                image: "programming.png"
+            },
+            {
+                id: 5,
+                name: "Ergonomic Keyboard",
+                description: "Mechanical keyboard designed for long coding sessions.",
+                price: 89.99,
+                category: "hardware",
+                image: "mouse-pad.png"
+            },
+            {
+                id: 6,
+                name: "Code Review Service",
+                description: "Professional code review by senior developers.",
+                price: 299.99,
+                category: "services",
+                image: "code-review.png"
+            },
+            {
+                id: 7,
+                name: "API Integration Package",
+                description: "Custom API integration services for your applications.",
+                price: 499.99,
+                category: "services",
+                image: "open.png"
+            },
+            {
+                id: 8,
+                name: "Database Management Tool",
+                description: "Visual database management and query tool with advanced features.",
+                price: 179.99,
+                category: "software",
+                image: "database.png"
+            }
+        ];
+
+        // DOM elements
+        const productsContainer = document.getElementById('products-container');
+        const searchInput = document.getElementById('search-input');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+
+        // Current filter state
+        let currentCategory = 'all';
+        let currentSearch = '';
+
+        // Function to render products
+        function renderProducts() {
+            // Filter products based on category and search
+            const filteredProducts = products.filter(product => {
+                const matchesCategory = currentCategory === 'all' || product.category === currentCategory;
+                const matchesSearch = product.name.toLowerCase().includes(currentSearch.toLowerCase()) || 
+                                     product.description.toLowerCase().includes(currentSearch.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            // Clear container
+            productsContainer.innerHTML = '';
+
+            // Show empty state if no products
+            if (filteredProducts.length === 0) {
+                productsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No products found</h3>
+                        <p>Try adjusting your search or filter criteria</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Render products
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">$${product.price.toFixed(2)}</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
+                            <button class="btn btn-outline" onclick="viewDetails(${product.id})">Details</button>
+                        </div>
+                    </div>
+                `;
+                productsContainer.appendChild(productCard);
+            });
+        }
+
+        // Function to handle category filtering
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            // Update active button
+            categoryButtons.forEach(btn => {
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            renderProducts();
+        }
+
+        // Function to handle search
+        function handleSearch() {
+            currentSearch = searchInput.value;
+            renderProducts();
+        }
+
+        // Mock functions for cart and details
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`Added ${product.name} to cart!`);
+        }
+
+        function viewDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`Viewing details for ${product.name}\nPrice: $${product.price.toFixed(2)}\nCategory: ${product.category}`);
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', handleSearch);
+        
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterByCategory(btn.dataset.category);
+            });
+        });
+
+        // Initial render
+        renderProducts();
+    </script>
+</body>
+</html>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+                
+
+    <script src="js/main.js"></script>
+</body>
+</html>
