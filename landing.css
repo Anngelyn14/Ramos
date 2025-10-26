@@ -1,0 +1,41 @@
+/* Landing page specific styles */
+.hero {
+    text-align: center;
+    padding: 6rem 0;
+    background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(63, 55, 201, 0.9));
+    color: rgb(155, 151, 199);
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
