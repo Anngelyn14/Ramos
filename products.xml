@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE products [
+<!ELEMENT products (category+)>
+<!ELEMENT category (name, product+)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT product (id, name, price, image, description)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT image (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+]>
+<products>
+    <category>
+        <name>Web Development</name>
+        <product>
+            <id>1</id>
+            <name>Responsive Website Template</name>
+            <price>49.99</price>
+            <image>https://via.placeholder.com/300x200/4361ee/ffffff?text=Web+Template</image>
+            <description>Fully responsive website template with modern design and mobile optimization</description>
+        </product>
+        <product>
+            <id>2</id>
+            <name>E-commerce Solution</name>
+            <price>199.99</price>
+            <image>https://via.placeholder.com/300x200/3f37c9/ffffff?text=E-commerce</image>
+            <description>Complete e-commerce platform with payment integration and inventory management</description>
+        </product>
+    </category>
+    <category>
+        <name>Mobile Apps</name>
+        <product>
+            <id>3</id>
+            <name>Fitness Tracking App</name>
+            <price>149.99</price>
+            <image>https://via.placeholder.com/300x200/4895ef/ffffff?text=Fitness+App</image>
+            <description>Mobile application for tracking fitness activities with social features</description>
+        </product>
+        <product>
+            <id>4</id>
+            <name>Food Delivery App</name>
+            <price>249.99</price>
+            <image>https://via.placeholder.com/300x200/4cc9f0/ffffff?text=Food+App</image>
+            <description>Complete food ordering and delivery application with real-time tracking</description>
+        </product>
+    </category>
+</products>
